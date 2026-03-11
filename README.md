@@ -39,7 +39,3 @@ I wanted a hands-on way to learn:
 ## Acknowledgment
 
 This project is built as an exploratory fork-inspired extension of [autoresearch](https://github.com/karpathy/autoresearch).
-
-## License
-
-MIT
