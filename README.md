@@ -1,80 +1,44 @@
-# autointerpret — Learning Project
+# autointerpret
 
-*A fork of [karpathy/autoresearch](https://github.com/karpathy/autoresearch) for exploring neural network interpretability.*
+A learning project where I explored whether architecture search can help find more interpretable neural network designs.
 
-## What This Is
+Inspired by [karpathy/autoresearch](https://github.com/karpathy/autoresearch), this repo focuses on adding interpretability-oriented evaluation into the experiment loop.
 
-This is a **learning project** exploring whether neural architecture search can find more interpretable models. It's a proof-of-concept, not finished research.
+## What I built
 
-**What works:**
-- Automated experiments with custom proxy metrics
-- Basic circuit analysis on our custom model
-- Causal ablation (found layer 7 matters for token copying)
+- Automated experiment loop for architecture exploration
+- Interpretability scoring pipeline (proxy metrics)
+- Scale-validation runs and plots
+- Custom circuit-analysis scripts (including causal ablation experiments)
+- Supporting notebooks and experiment outputs
 
-**What doesn't work:**
-- Integration with standard MI tools (TransformerLens, SAELens)
-- Comparison to established baselines (GPT-2, Pythia)
-- Full circuit analysis
+## Repo structure
 
-## What We Found
+- `prepare.py`, `train.py` – training/data pipeline
+- `interpret.py` – interpretability metric computation
+- `plot_results.py`, `analyze_results.py` – analysis + figures
+- `notebooks/` – Kaggle notebooks
+- `results/` – experiment logs
+- `figures/` – generated plots
+- `archive/` – extra experiments, prototypes, and notes
 
-1. **Depth correlates with proxy metrics** - Deeper models score higher on our interpretability metrics
-2. **Token copying circuit exists** - Found with custom analysis tools
-3. **Layer 7 is necessary** - Ablation decreases copy behavior by 0.04
+## Why this repo exists
 
-These are preliminary findings, not validated results.
+I wanted a hands-on way to learn:
+1. How to run iterative architecture experiments
+2. How to evaluate interpretability signals during search
+3. How to build analysis tooling when off-the-shelf tools don’t directly fit
 
-## Why It Matters (For Learning)
+## Future scope
 
-If you're interested in:
-- Building custom ML analysis tools
-- Understanding how to analyze neural networks
-- Exploring interpretability research
+- Improve compatibility with standard MI tooling (e.g. TransformerLens workflows)
+- Add stronger baseline comparisons against standard architectures
+- Expand beyond initial behaviors into broader circuit-level analyses
+- Turn this into a cleaner, reproducible benchmark setup
 
-...this shows one approach. We built things from scratch when standard tools didn't work.
+## Acknowledgment
 
-## Quick Start
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Download data
-python prepare.py
-
-# Run experiment
-python train.py
-
-# Analyze results
-python interpret.py
-```
-
-## Project Structure
-
-```
-autointerpret/
-├── mi_tools_backup/           # Working custom analysis tools
-├── gpt2_baseline_analysis.py  # TransformerLens demo
-├── notebooks/                 # Scale validation (Kaggle)
-├── figures/                  # Visualizations
-└── train.py, interpret.py   # Core code
-```
-
-## Honest Limitations
-
-- Our proxy metrics may not measure true interpretability
-- No comparison to established models
-- Custom architecture incompatible with standard MI tools
-- Small scale experiments
-- Findings not validated externally
-
-## For More Serious Work
-
-If you want to do real interpretability research:
-- Use TransformerLens or SAELens
-- Start with GPT-2 or Pythia
-- Compare to established circuits
-- Get feedback from MI community
+This project is built as an exploratory fork-inspired extension of [autoresearch](https://github.com/karpathy/autoresearch).
 
 ## License
 
